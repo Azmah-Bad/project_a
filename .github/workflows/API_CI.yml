@@ -29,6 +29,11 @@ jobs:
         mysql user: project_a # optional, default is 
         # MYSQL_PASSWORD - specified superuser password which user is power for created database
         mysql password: project_a # optional, default is
+    
+    - name: install dependancies
+      run: |
+        cd api/
+        npm install 
     - name: run test
       run: |
         cd api/
