@@ -10,11 +10,13 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     
     steps:
     - uses: actions/checkout@v2
+      with:
+        path: api
 
     - name: Use Node.js
       uses: actions/setup-node@v1
@@ -30,11 +32,5 @@ jobs:
         # MYSQL_PASSWORD - specified superuser password which user is power for created database
         mysql password: project_a # optional, default is
     
-    - name: install dependancies
-      run: |
-        cd api/
-        npm install 
-    - name: run test
-      run: |
-        cd api/
-        npm test
+    - run: npm ci 
+    - run: npm test
