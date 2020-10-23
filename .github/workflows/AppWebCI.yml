@@ -16,10 +16,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - run: cd appweb
     - name: Use Node.js
-      uses: |
-        cd appweb
-        actions/setup-node@v1
+      uses: actions/setup-node@v1
 
     - run: npm run build --if-present
     - run: npm jest
