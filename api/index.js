@@ -135,3 +135,5 @@ sequelize
   });
 
 //endregion
+
+module.exports = app;
