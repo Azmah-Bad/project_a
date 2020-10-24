@@ -11,7 +11,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -22,11 +21,14 @@ jobs:
     - name: Install dependacies
       run: |
         cd appweb
-        npm install
+        npm ci
 
-    - run: |
+    - name: build appweb
+      run: |
         cd appweb
         npm run build --if-present
-    - run: |
+        
+    - name: tests
+      run: |
         cd appweb
         npm test
